@@ -485,9 +485,7 @@ context. You should place this element as a child of `<body>` whenever possible.
      * @protected
      */
     _onCaptureClick: function(event) {
-      if (!this.noCancelOnOutsideClick) {
-        this.cancel(event);
-      }
+      this.cancel(event);
     },
 
     /**
@@ -496,9 +494,6 @@ context. You should place this element as a child of `<body>` whenever possible.
      * @protected
      */
     _onCaptureFocus: function (event) {
-      if (!this.withBackdrop) {
-        return;
-      }
       var path = Polymer.dom(event).path;
       if (path.indexOf(this) === -1) {
         event.stopPropagation();
@@ -514,9 +509,7 @@ context. You should place this element as a child of `<body>` whenever possible.
      * @protected
      */
     _onCaptureEsc: function(event) {
-      if (!this.noCancelOnEscKey) {
-        this.cancel(event);
-      }
+      this.cancel(event);
     },
 
     /**
@@ -526,9 +519,6 @@ context. You should place this element as a child of `<body>` whenever possible.
      * @protected
      */
     _onCaptureTab: function(event) {
-      if (!this.withBackdrop) {
-        return;
-      }
       this.__ensureFirstLastFocusables();
       // TAB wraps from last to first focusable.
       // Shift + TAB wraps from first to last focusable.
